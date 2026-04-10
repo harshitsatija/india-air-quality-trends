@@ -9,7 +9,7 @@ CITY_STORIES = {
         "narrative": "Delhi's spring air is a rollercoaster — dust storms from Rajasthan push PM2.5 to 9x the safe limit one day, rain clears it the next. The city swung between 25 and 142 µg/m³ this month. PM2.5 exceeded the WHO limit on every single day, even the 'good' ones.",
         "stories": [
             {
-                "event": "Spring dust and traffic opened the month at 9x safe limit",
+                "event": "Month opened at 142 µg/m³ — 9x the safe limit",
                 "dates": "Mar 10–12",
                 "impact": "PM2.5 hit 142 µg/m³ on the first day — the worst reading of the entire month.",
                 "detail": "March is peak dust season in Delhi as westerly winds carry desert particles from Rajasthan (documented by IQAir and Down to Earth). Vehicle emissions, which account for ~30% of Delhi's PM2.5 year-round, likely compounded the effect. However, no specific dust storm event was reported on these dates — this may reflect Delhi's elevated spring baseline rather than a discrete event.",
@@ -20,7 +20,7 @@ CITY_STORIES = {
                 "end": "2026-03-12",
             },
             {
-                "event": "Holi coincided with a pollution spike",
+                "event": "PM2.5 doubled on Holi night",
                 "dates": "Mar 14",
                 "impact": "PM2.5 jumped from 58 to 119 µg/m³ overnight — doubling in a single day.",
                 "detail": "Holi was celebrated on Mar 14, with Holika Dahan bonfires the night before (StayVista). Bonfires and firecrackers are known PM2.5 sources during festivals — but Delhi also sees 50-100% daily swings routinely in spring. The timing is suggestive but we cannot isolate Holi's contribution from background dust variability.",
@@ -31,7 +31,7 @@ CITY_STORIES = {
                 "end": "2026-03-14",
             },
             {
-                "event": "Rain brought the best air quality in 161 days",
+                "event": "Best air quality in 161 days — AQI hit 93",
                 "dates": "Mar 19",
                 "impact": "PM2.5 dropped to 29 µg/m³. AQI hit 93 — first 'Satisfactory' rating since October 2025.",
                 "detail": "Overnight rain from a western disturbance was reported by Outlook Traveller and NewsX. Rain physically removes particles from the air (wet deposition — well-established atmospheric science). The Patriot confirmed AQI dropped to 93. The western disturbance was unusual for its timing — a 1,000 km rain band, per Legacy IAS. The correlation between rain and PM2.5 drop is consistent with known scavenging mechanisms.",
@@ -42,7 +42,7 @@ CITY_STORIES = {
                 "end": "2026-03-19",
             },
             {
-                "event": "Pollution rebuilt to 126 over 4 dry days",
+                "event": "PM2.5 climbed back to 126 over 4 dry days",
                 "dates": "Mar 23–25",
                 "impact": "PM2.5 hit 126 on Mar 23 and stayed above 100 for 3 straight days.",
                 "detail": "After the Mar 19 rain, conditions returned to dry spring normal. No specific event was identified for this spike — it likely reflects the resumption of Delhi's background pollution (dust resuspension, traffic, construction) once rain-based suppression ended. This pattern of 'rain relief → rapid rebound' repeated multiple times this month.",
@@ -53,7 +53,7 @@ CITY_STORIES = {
                 "end": "2026-03-25",
             },
             {
-                "event": "Massive dust storm — AQI crossed 500",
+                "event": "AQI crossed 500 during dust storm",
                 "dates": "Apr 1–2",
                 "impact": "PM10 exceeded 800 µg/m³. Delhi ranked among the world's 10 most polluted cities.",
                 "detail": "IQAir reported on Apr 3 that Delhi's AQI exceeded 500 (hazardous), driven overwhelmingly by coarse dust rather than combustion particles. PM10 dominating over PM2.5 is consistent with a regional dust transport event. IQAir specifically attributed this to dust, not industrial or vehicular sources.",
@@ -64,7 +64,7 @@ CITY_STORIES = {
                 "end": "2026-04-02",
             },
             {
-                "event": "Coldest April day in 11 years cleared the air",
+                "event": "Coldest April day in 11 years — AQI dropped to 93",
                 "dates": "Apr 8",
                 "impact": "Temperature hit 28.2°C — 6.9°C below normal. AQI dropped to 93.",
                 "detail": "Oneindia and Daily Pioneer confirmed the temperature record and AQI reading. Rain and wind from a western disturbance likely dispersed pollutants — consistent with wet deposition and mechanical dispersion mechanisms. By Apr 9, dust was back at 105 µg/m³, suggesting the cleanup was entirely weather-driven and temporary.",
@@ -75,7 +75,7 @@ CITY_STORIES = {
                 "end": "2026-04-08",
             },
             {
-                "event": "80 µg/m³ swing in 24 hours",
+                "event": "PM2.5 swung 80 µg/m³ in 24 hours",
                 "dates": "Apr 9–10",
                 "impact": "PM2.5 crashed from 105 to 25 overnight — from 'Severe' to near safe.",
                 "detail": "The Air Quality Early Warning System forecast winds of 22-26 kmph on Apr 10. Wind-driven dispersion of particulate matter is well-established physics. The Patriot described Delhi's spring AQI as 'dangerously volatile' — this single-day swing illustrates the pattern. No rain was reported, so mechanical dispersion by wind is the most likely mechanism.",
@@ -91,7 +91,7 @@ CITY_STORIES = {
         "narrative": "Bengaluru's air is 2.4x the safe limit — moderate by Indian standards but never actually safe. Metro construction dust is a persistent driver. The month saw a hailstorm that briefly cleaned the air, a mysterious one-day spike to 60 µg/m³, an IPL match that coincided with a traffic spike, and the early signs of pre-monsoon relief.",
         "stories": [
             {
-                "event": "Metro construction dust pushed mid-March to near month's worst",
+                "event": "PM2.5 hit 48 during dry mid-March spell",
                 "dates": "Mar 12–15",
                 "impact": "PM2.5 hit 48 µg/m³ on Mar 13 — 3.2x the safe limit. Humidity dropped from 65% to 50%.",
                 "detail": "Citizen Matters has documented that Namma Metro Phase 2 construction is happening in residential areas without proper dust management, and that mandated suppression measures are not being followed. AQI.in recorded PM2.5 of 52 on Mar 13. Declining humidity reduces natural moisture suppression of dust — a known mechanism. However, we cannot prove the metro was the specific cause on these dates vs other construction activity.",
@@ -102,7 +102,7 @@ CITY_STORIES = {
                 "end": "2026-03-15",
             },
             {
-                "event": "Hailstorm hit, then air cleared for 3 days",
+                "event": "Hailstorm on Mar 17, then 3 days of cleaner air",
                 "dates": "Mar 17–20",
                 "impact": "PM2.5 spiked to 46 during the storm, then dropped to 28 over the following days.",
                 "detail": "Deccan Herald reported hail in Sanjayanagar, Yelahanka, and Devanahalli on Mar 17. Zee News confirmed IMD thunderstorm warnings for Mar 17-21. The post-storm PM2.5 decline is consistent with rain scavenging — wet deposition is the most effective natural particle removal mechanism. Ugadi was celebrated Mar 19 which may have reduced weekday traffic, though this effect is difficult to quantify.",
@@ -113,7 +113,7 @@ CITY_STORIES = {
                 "end": "2026-03-20",
             },
             {
-                "event": "Worst day of the month — PM2.5 hit 60, then dropped back",
+                "event": "Month's worst day — PM2.5 hit 60, then fell back",
                 "dates": "Mar 23–24",
                 "impact": "PM2.5 spiked to 60 µg/m³ (4x the safe limit) then dropped to 36 overnight.",
                 "detail": "No specific event was identified for this one-day anomaly. The spike was recorded across 39 stations city-wide, which suggests a regional phenomenon (like a dust transport event or atmospheric stagnation) rather than a single local source. Without wind trajectory data or satellite imagery, we cannot determine the cause.",
@@ -124,7 +124,7 @@ CITY_STORIES = {
                 "end": "2026-03-24",
             },
             {
-                "event": "Pre-monsoon showers kept air below average for 4 days",
+                "event": "4 days below average during pre-monsoon showers",
                 "dates": "Apr 1–4",
                 "impact": "PM2.5 averaged 31 µg/m³ — still 2x the safe limit, but the cleanest sustained stretch.",
                 "detail": "Oneindia reported 90-100% thunderstorm probability as pre-monsoon convective season established over Karnataka. IMD Bengaluru forecast light to moderate rain. Intermittent showers are consistent with the sustained low PM2.5 — repeated rain events prevent particle accumulation. This seasonal pattern is well-documented for south India.",
@@ -135,7 +135,7 @@ CITY_STORIES = {
                 "end": "2026-04-04",
             },
             {
-                "event": "IPL match day coincided with pollution spike",
+                "event": "PM2.5 spiked on IPL match day",
                 "dates": "Apr 5",
                 "impact": "PM2.5 jumped from 32 to 43 µg/m³ — the only spike in an otherwise clean week.",
                 "detail": "RCB vs CSK was played at Chinnaswamy Stadium (confirmed by IPLT20). News9 and Goodreturns reported police banned parking on MG Road and Queens Road and issued a traffic advisory. Increased traffic is a plausible contributor to the PM2.5 spike, as NO2 (a traffic marker) tends to correlate with match-day congestion. However, we cannot isolate the match's effect from other daily variability — a 11 µg/m³ jump is within Bengaluru's normal range.",
@@ -146,7 +146,7 @@ CITY_STORIES = {
                 "end": "2026-04-05",
             },
             {
-                "event": "35.2°C heatwave — but PM2.5 actually dropped",
+                "event": "35.2°C heatwave — yet PM2.5 hit month's low",
                 "dates": "Apr 7",
                 "impact": "Bengaluru recorded its lowest PM2.5 of the month (17 µg/m³ — near WHO safe levels) on one of its hottest days.",
                 "detail": "NewsFirst Prime confirmed 35.2°C (1.5°C above normal) on this date. Deccan Herald reported IMD predicted rising heat with rain relief from Apr 11. Counter-intuitively, strong surface heating can increase vertical mixing, lifting pollutants away from ground level — a well-known meteorological mechanism. This may explain why the hottest day had the cleanest air, though other factors (wind patterns, reduced activity) could also contribute.",
@@ -162,7 +162,7 @@ CITY_STORIES = {
         "narrative": "Hyderabad's air is the steadiest of the 6 cities — 2.1x the WHO limit with less day-to-day volatility than Delhi or Jaipur. Unseasonal rain around Ugadi gave the longest clean stretch of the month, but construction dust quickly brought pollution back.",
         "stories": [
             {
-                "event": "Dry heat pushed pollution to month's peak",
+                "event": "Month's highest PM2.5 during dry mid-March",
                 "dates": "Mar 12–15",
                 "impact": "PM2.5 averaged 37 µg/m³ — the highest sustained stretch of the month.",
                 "detail": "IMD via PingTV reported temperatures of 32-37°C across Telangana with no rain during this period. Dry conditions reduce natural wet deposition and allow dust to remain airborne longer — a well-established relationship. However, this was a modest elevation (6 µg/m³ above mean) and may simply reflect normal variability rather than a specific event.",
@@ -173,7 +173,7 @@ CITY_STORIES = {
                 "end": "2026-03-15",
             },
             {
-                "event": "Unseasonal rain + Ugadi gave a week of cleaner air",
+                "event": "Week of cleaner air around Ugadi and unseasonal rain",
                 "dates": "Mar 16–22",
                 "impact": "PM2.5 dropped to 22 µg/m³ on Mar 16 and stayed low for 7 days.",
                 "detail": "PingTV reported unseasonal rains with lightning and gusty winds (41-61 kmph) sweeping through Telangana around Mar 17. Hyderabad Mail confirmed Ugadi celebrations on Mar 19. Rain scavenging is the most likely explanation for the sustained low PM2.5. Reduced weekday activity during Ugadi may have contributed, though the rain effect alone is sufficient to explain the pattern.",
@@ -184,7 +184,7 @@ CITY_STORIES = {
                 "end": "2026-03-22",
             },
             {
-                "event": "Construction dust spiked pollution — residents complained",
+                "event": "PM2.5 hit 44 as residents reported construction dust",
                 "dates": "Mar 28–30",
                 "impact": "PM2.5 jumped to 44 µg/m³ — 2.9x the safe limit. AQI hit 146 on Mar 27.",
                 "detail": "AQI.in recorded AQI of 146 (Poor) on Mar 27. Hyderabad Mail reported residents near Golconda Chowrasta complained of severe dust from Gentry Homes construction, with elderly and children facing respiratory problems. While construction dust is a documented PM contributor, other sources (traffic, regional dust) likely also contributed. The resident complaints provide direct ground-level evidence of dust as a factor.",
@@ -195,7 +195,7 @@ CITY_STORIES = {
                 "end": "2026-03-30",
             },
             {
-                "event": "Late-March showers brought April into a calmer pattern",
+                "event": "Steadier air through early April after late-March rain",
                 "dates": "Mar 31 – Apr 7",
                 "impact": "PM2.5 averaged 27 µg/m³ for a week — no dramatic spikes.",
                 "detail": "Sunday Guardian and IMD reported late evening thundershowers around end of March. The week-long stable pattern is consistent with regular moisture input suppressing dust resuspension. April showed less volatility than March across most Indian cities, which is typical as pre-monsoon convective activity increases.",
@@ -211,7 +211,7 @@ CITY_STORIES = {
         "narrative": "Mumbai had two clear phases this month. Early March was dirty (PM2.5 up to 48, driven by construction). Then rain arrived Mar 28 and the air became extraordinarily clean — AQI hit 21 on Mar 31. But by April 9, dry heat brought it all back.",
         "stories": [
             {
-                "event": "BMC crackdown on 1,073 construction sites",
+                "event": "PM2.5 at 44 despite BMC crackdown on 1,073 sites",
                 "dates": "Mar 10–13",
                 "impact": "PM2.5 averaged 44 µg/m³ despite enforcement. Hotspots: Kanjurmarg AQI 309, Ghatkopar 183.",
                 "detail": "Deccan Herald and Free Press Journal reported BMC issued stop-work notices to 1,073 construction sites violating dust-control norms. PM2.5 was down 14% year-on-year per Deccan Herald, suggesting enforcement had some effect. However, PM2.5 remained 3x the safe limit — indicating construction dust is one of many contributors. A Newslaundry investigation found Mumbai had only 7 'good' air days in 5 years, calling the chronic pollution 'normalised.'",
@@ -222,7 +222,7 @@ CITY_STORIES = {
                 "end": "2026-03-13",
             },
             {
-                "event": "Pollution crept back up over 10 days",
+                "event": "PM2.5 crept from 13 to 48 over 10 dry days",
                 "dates": "Mar 17–26",
                 "impact": "PM2.5 rose gradually from 13 to 48 µg/m³ over 10 days.",
                 "detail": "After a brief clean spell, pollution steadily rebuilt as dry weather returned. Free Press Journal noted AQI reached 89 (Moderate) by Mar 27 — described as 'a major improvement compared to previous weeks.' The gradual nature of the rise suggests accumulation from persistent sources (construction, traffic) rather than a single event. This pattern — slow buildup interrupted only by rain — is characteristic of Mumbai's spring pollution.",
@@ -233,7 +233,7 @@ CITY_STORIES = {
                 "end": "2026-03-26",
             },
             {
-                "event": "Rainfall brought ultra-clean air — AQI hit 21",
+                "event": "AQI hit 21 — below WHO safe limit for 12 days",
                 "dates": "Mar 28 – Apr 8",
                 "impact": "PM2.5 dropped to 10 µg/m³ — below the WHO safe limit. AQI hit 21 on Mar 31.",
                 "detail": "Free Press Journal reported AQI of 21 (Good) on Mar 31 and predicted light rain bringing relief from heat. Rain scavenging is the most effective natural particle removal mechanism, and the sustained clean period (12 days) is consistent with repeated rain events suppressing dust. Mumbai's coastal geography also helps — onshore sea breezes push pollutants inland during wet weather.",
@@ -244,7 +244,7 @@ CITY_STORIES = {
                 "end": "2026-04-08",
             },
             {
-                "event": "Dry heat brought pollution right back",
+                "event": "PM2.5 surged to 43 as dry heat returned",
                 "dates": "Apr 9–10",
                 "impact": "PM2.5 surged to 43 µg/m³ by Apr 10 — the highest since late March. Navi Mumbai AQI hit 201.",
                 "detail": "AQI.in recorded Mumbai AQI of 100 (Moderate) on Apr 10 and Navi Mumbai at 201 (Severe). IQAir ranked Mumbai among the most polluted cities globally on Apr 9. The spike coincided with the end of rain and return of dry conditions — consistent with the cessation of wet deposition allowing particle accumulation. The clean spell lasted exactly as long as the rain did.",
@@ -260,7 +260,7 @@ CITY_STORIES = {
         "narrative": "Jaipur's air is shaped by the Thar Desert. PM2.5 swung from 13 to 172 µg/m³ this month — the widest range of any city we track. Western disturbances bring dramatic but short-lived relief; the moment rain stops, dust returns within hours.",
         "stories": [
             {
-                "event": "Desert dust pushed PM2.5 to 172 — 11x the safe limit",
+                "event": "PM2.5 hit 172 — 11x the safe limit",
                 "dates": "Mar 11",
                 "impact": "The worst single day across all 6 cities. PM2.5 hit 172 µg/m³.",
                 "detail": "AQICN recorded 'Unhealthy' PM2.5 levels at the Adarsh Nagar station in early March. Jaipur's proximity to the Thar Desert means windblown dust is a constant factor. IQAir identifies vehicles and industrial activity as additional sources. However, 172 µg/m³ is extreme even for Jaipur — this likely reflects a specific dust transport event, though no dust storm warning was found for this date.",
@@ -271,7 +271,7 @@ CITY_STORIES = {
                 "end": "2026-03-11",
             },
             {
-                "event": "Western disturbance brought 4 days of clean air",
+                "event": "4 days of cleaner air during western disturbance",
                 "dates": "Mar 18–21",
                 "impact": "PM2.5 dropped from 48 to 28 µg/m³ over 4 days.",
                 "detail": "Patrika reported IMD issued yellow alert for thunderstorms in 37 Rajasthan districts on Mar 18-19. Zee News confirmed the western disturbance was active Mar 18-21 with winds of 30-50 kmph. Jaipur Unveiled reported light rain with dust storms. Rain and wind are both effective particle removal mechanisms. The 4-day duration matches the weather system's lifespan.",
@@ -282,7 +282,7 @@ CITY_STORIES = {
                 "end": "2026-03-21",
             },
             {
-                "event": "Dry heat surged PM2.5 to 93",
+                "event": "PM2.5 surged to 93 in late-March heat",
                 "dates": "Mar 27–28",
                 "impact": "PM2.5 nearly doubled from 54 to 93 in one day — 6.2x the safe limit.",
                 "detail": "EaseWeather shows end-of-March temperatures in Jaipur reach 36-37°C. Sunday Guardian's Mar 27 weather report confirms dry conditions across Rajasthan. Hot, dry conditions increase dust resuspension from unpaved surfaces — a documented mechanism in arid regions. The rapid rise is consistent with desert dust mobilization under high temperatures and low humidity.",
@@ -293,7 +293,7 @@ CITY_STORIES = {
                 "end": "2026-03-28",
             },
             {
-                "event": "The cleanest day: PM2.5 hit 13 µg/m³",
+                "event": "Month's cleanest day — PM2.5 hit 13",
                 "dates": "Mar 30",
                 "impact": "For one day, Jaipur's air was within the WHO safe limit — rare for a desert city.",
                 "detail": "IMD reported intermittent weather activity across Rajasthan around this time. A PM2.5 reading of 13 µg/m³ in a desert-adjacent city strongly suggests recent rainfall, as natural dust levels alone would keep readings higher. However, by Apr 1 PM2.5 was back at 75 — the relief lasted less than 48 hours.",
@@ -304,7 +304,7 @@ CITY_STORIES = {
                 "end": "2026-03-31",
             },
             {
-                "event": "Thunderstorm and hail: 118 → 29 in 24 hours",
+                "event": "118 → 29 in 24 hours after thunderstorm and hail",
                 "dates": "Apr 9–10",
                 "impact": "The most dramatic single-day drop of the month. PM2.5 fell 75% overnight.",
                 "detail": "NewsX confirmed IMD warned of rain, hail, and winds up to 85 kmph across Rajasthan on Apr 9. AQI.in recorded PM2.5 dropping to 25 µg/m³ (Good) by Apr 10. The magnitude of the drop (89 µg/m³ in 24 hours) is consistent with heavy rain scavenging combined with strong wind dispersion — the two most effective natural particle removal mechanisms acting together.",
@@ -320,7 +320,7 @@ CITY_STORIES = {
         "narrative": "Chennai is the closest to safe air among the 6 cities — just 1.1x the WHO limit on average. The Manali-Ennore industrial corridor in the north drives most pollution. The story this month: generally clean conditions with a late spike as summer heat arrived.",
         "stories": [
             {
-                "event": "Dry season pushed pollution to month's highest",
+                "event": "Month's highest PM2.5 in early dry season",
                 "dates": "Mar 10–14",
                 "impact": "PM2.5 averaged 25 µg/m³ — modest by Indian standards but above the WHO limit.",
                 "detail": "A peer-reviewed study in Aerosol and Air Quality Research (AAQR) documents the Manali-Ennore petrochemical corridor as a persistent SO2 and PM10 source, with the dry Jan-Mar season seeing the worst air quality citywide. The elevated March readings are consistent with this seasonal pattern. Chennai's relatively low PM2.5 compared to other Indian cities is partly due to coastal sea breeze dispersal.",
@@ -331,7 +331,7 @@ CITY_STORIES = {
                 "end": "2026-03-14",
             },
             {
-                "event": "Mid-March: air dropped to 4 µg/m³",
+                "event": "PM2.5 dropped to 4 µg/m³ — cleaner than most of Europe",
                 "dates": "Mar 18",
                 "impact": "PM2.5 hit 4 µg/m³ — for context, that's cleaner than most European cities.",
                 "detail": "No specific weather event was identified. AAQR research documents that Chennai's onshore sea breeze can effectively disperse pollutants inland. A reading of 4 µg/m³ suggests strong onshore wind conditions and possibly reduced industrial/traffic activity. This is an exceptionally low reading even for Chennai.",
@@ -342,7 +342,7 @@ CITY_STORIES = {
                 "end": "2026-03-18",
             },
             {
-                "event": "Late March spike — Manali industrial corridor",
+                "event": "Late March spike near Manali industrial corridor",
                 "dates": "Mar 26–28",
                 "impact": "PM2.5 rose from 15 to 27 µg/m³ — the highest stretch of the month.",
                 "detail": "AQI.in recorded AQI 154 (Unhealthy) at the Manali station in late March. A 2026 paper in Nature Scientific Reports documents air quality impacts from metro rail construction in Chennai. While these sources confirm elevated pollution in the industrial north, the city-wide average of 27 µg/m³ remained well below Indian NAAQS standards. The spike may reflect a combination of industrial activity and reduced sea breeze.",
@@ -353,7 +353,7 @@ CITY_STORIES = {
                 "end": "2026-03-28",
             },
             {
-                "event": "Summer heat spiked pollution to 32",
+                "event": "PM2.5 rose to 32 as summer heat set in",
                 "dates": "Apr 9–10",
                 "impact": "PM2.5 jumped to 32 µg/m³ — AQI hit 135 (Poor). Highest of the month.",
                 "detail": "AQI.in recorded AQI of 135 (Poor) on Apr 9 and 120 on Apr 10. Humidity dropped from 85% to 73% during this period — reduced moisture means less natural suppression of particulate matter. However, 32 µg/m³ is relatively mild compared to north Indian cities and is within Chennai's seasonal variability.",
