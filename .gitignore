@@ -1,0 +1,12 @@
+# Raw data files
+airnet_*.json
+cpcb_*.json
+blr_*.json
+city_data/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temp
+/tmp/

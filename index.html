@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Air Quality — Last 30 Days</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fff;--bg2:#fafafa;--brd:#eaeaea;
+  --g100:#f5f5f5;--g200:#eaeaea;--g300:#d4d4d4;--g400:#999;--g500:#888;--g600:#666;--g700:#444;--g800:#333;--g1000:#111;
+  --green:#16a34a;--green-bg:#dcfce7;--red:#dc2626;--red-bg:#fee2e2;--amber:#ca8a04;--amber-bg:#fef9c3;--blue:#0070f3;--blue-bg:#eef6ff;
+  --f:'Geist',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+  --m:'Geist Mono','Menlo','Consolas',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:var(--f);background:var(--bg);color:var(--g1000);-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--g300);border-radius:3px}
+
+.page{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* ── Header ── */
+.hdr{height:48px;display:flex;align-items:center;border-bottom:1px solid var(--brd);padding:0 40px;max-width:1200px;margin:0 auto}
+.hdr .logo{font-size:14px;font-weight:700;color:var(--g1000);letter-spacing:-.01em}
+.hdr .meta{margin-left:auto;font-family:var(--m);font-size:12px;color:var(--g500)}
+
+/* ── Gallery ── */
+.gallery-sub{padding:20px 0 16px;font-size:13px;color:var(--g500)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd);border:1px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:32px}
+@media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--bg);padding:28px 24px;cursor:pointer;transition:background .15s}
+.card:hover{background:var(--bg2)}
+.card .name{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--g400);font-weight:500;margin-bottom:10px}
+.card .num{font-size:36px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.card .num.g{color:var(--green)}.card .num.m{color:var(--amber)}.card .num.b{color:var(--red)}
+.card .spark{height:28px;display:flex;align-items:flex-end;gap:1px;margin-top:14px}
+.card .spark div{flex:1;border-radius:1px;min-height:2px;opacity:.4}
+.card:hover .spark div{opacity:.7}
+.card .card-meta{font-size:11px;color:var(--g400);margin-top:8px;font-family:var(--m)}
+.gallery-foot{text-align:center;padding:16px 0 48px;font-size:11px;color:var(--g400)}
+.gallery-foot a{color:var(--blue);text-decoration:none}
+
+/* ── Detail ── */
+#detail{display:none}#detail.on{display:block}
+.back-btn{background:none;border:1px solid var(--brd);color:var(--g600);padding:5px 14px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--f);transition:all .1s;margin:16px 0}
+.back-btn:hover{border-color:var(--g300);color:var(--g800);background:var(--bg2)}
+
+.three-col{display:grid;grid-template-columns:220px 1fr 220px;gap:32px}
+@media(max-width:900px){.three-col{grid-template-columns:1fr}}
+
+/* ── Col 1 ── */
+.c1 .city-name{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.c1 .city-sub{font-size:12px;color:var(--g500);margin-top:4px}
+.kpi-row{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{border:1px solid var(--brd);border-radius:8px;padding:10px 12px}
+.kpi .kv{font-size:18px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .kv.g{color:var(--green)}.kpi .kv.m{color:var(--amber)}.kpi .kv.b{color:var(--red)}
+.kpi .kl{font-size:10px;color:var(--g500);margin-top:2px}
+.c1 .chart{margin-top:16px}
+.c1 .chart svg{width:100%;display:block}
+
+/* ── Col 2: Stories ── */
+.c2{padding-bottom:48px}
+.c2 .narrative{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--brd)}
+.c2 .sec-label{font-size:11px;font-weight:500;color:var(--g400);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+
+.ti{border:1px solid var(--brd);border-radius:8px;padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:all .12s}
+.ti:hover{background:var(--bg2);border-color:var(--g300)}
+.ti.active{background:var(--bg2);border-color:var(--g300);border-radius:8px 8px 0 0;border-bottom-color:transparent;margin-bottom:0}
+.ti .ti-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ti .ti-left{min-width:0;flex:1}
+.ti .t-headline{font-size:14px;font-weight:600;color:var(--g1000);line-height:1.35}
+.ti .t-impact{font-size:12px;color:var(--g500);margin-top:4px;line-height:1.5}
+.ti .t-date{font-size:11px;color:var(--g400);font-family:var(--m);white-space:nowrap;padding:3px 8px;border:1px solid var(--brd);border-radius:4px;flex-shrink:0;background:var(--bg)}
+.dot{display:inline-block;border-radius:50;margin-right:5px}
+.dot.up{background:var(--red)}.dot.down{background:var(--green)}.dot.ctx{background:var(--blue)}
+
+.td{display:none;border:1px solid var(--g300);border-top:none;border-radius:0 0 8px 8px;padding:16px;margin-bottom:8px;background:var(--bg2)}
+.td.open{display:block}
+.td .td-pm{font-size:24px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.td .td-pm.g{color:var(--green)}.td .td-pm.m{color:var(--amber)}.td .td-pm.b{color:var(--red)}
+.td .td-sub{font-size:11px;color:var(--g400);font-family:var(--m);margin-bottom:10px}
+.td .chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.td .chip{font-size:10px;font-family:var(--m);color:var(--g600);background:var(--g100);border:1px solid var(--brd);padding:2px 7px;border-radius:4px}
+.td .td-label{font-size:10px;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;margin-top:8px}
+.td .td-why{font-size:13px;color:var(--g600);line-height:1.65}
+.td .td-why.confirmed{color:var(--green)}
+.td .td-news{font-size:11px;color:var(--green);margin-top:8px;line-height:1.5}
+
+/* ── Col 3: Calendar ── */
+.cal-label{font-size:10px;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;margin-top:14px}
+.cal-label:first-child{margin-top:0}
+.cal-wk{display:grid;grid-template-columns:repeat(7,1fr)}
+.cal-wk span{font-size:10px;color:var(--g300);text-align:center;padding:4px 0;font-weight:500}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr)}
+
+.cd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--g400);position:relative}
+.cd.in{color:var(--g700)}
+.cd.has-trend{cursor:pointer}
+
+/* PM2.5 underline dot */
+.cd .pdot{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;opacity:.4}
+
+/* Trend days — subtle underline bar */
+.cd.trg{font-weight:700;color:var(--g1000)}
+.cd .trg-bar{position:absolute;bottom:2px;left:3px;right:3px;height:3px;border-radius:1.5px;background:var(--g300)}
+.cd.trg.rl .trg-bar{left:3px}.cd.trg.rr .trg-bar{right:3px}
+
+/* Selected/highlighted trend */
+.cd.hl{background:var(--g100);border-radius:4px}
+.cd.hl .trg-bar{background:var(--g1000)}
+
+.tip{display:none;position:fixed;background:var(--bg);border:1px solid var(--brd);padding:8px 12px;border-radius:8px;font-size:12px;z-index:100;pointer-events:none;line-height:1.6;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">India Air Quality</div>
+  <div class="meta">Mar 10 – Apr 10, 2026</div>
+</div>
+
+<div id="gallery" class="page">
+  <div class="gallery-sub">What happened to your city's air this month</div>
+  <div class="grid" id="grid"></div>
+  <div class="gallery-foot">Data from <a href="https://oaq.notf.in">OAQ (Open Air Quality)</a> &middot; CPCB stations &middot; Hypotheses are data-driven estimates</div>
+</div>
+
+<div id="detail" class="page">
+  <button class="back-btn" onclick="back()">&larr; All cities</button>
+  <div class="three-col">
+    <div class="c1" id="col1"></div>
+    <div class="c2" id="col2"></div>
+    <div class="c3" id="col3"></div>
+  </div>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+let D=[];
+const cl=v=>v<=30?'g':v<=60?'m':'b';
+const hx=v=>v<=30?'#16a34a':v<=60?'#ca8a04':'#dc2626';
+const fd=d=>{const[,m,day]=d.split('-');return['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m]+' '+( +day)};
+const ff=d=>{const[y,m,day]=d.split('-');const dt=new Date(+y,+m-1,+day);return['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()]+', '+fd(d)};
+
+function renderGrid(){
+  document.getElementById('grid').innerHTML=D.map(x=>{
+    const v=x.daily.map(d=>d.pm25).filter(Boolean);
+    const mn=Math.min(...v),mx=Math.max(...v);
+    const bars=v.map(val=>{
+      const ht=mx>mn?((val-mn)/(mx-mn)*16+4):10;
+      return`<div style="height:${ht}px;background:${hx(val)}"></div>`;
+    }).join('');
+    const whoX = x.who_multiple || (x.mean_pm25/15).toFixed(1);
+    return`<div class="card" onclick="show('${x.key}')">
+      <div class="name">${x.name}</div>
+      <div class="num ${cl(x.mean_pm25)}">${whoX}x</div>
+      <div style="font-size:11px;color:var(--g400);margin-top:2px">WHO safe limit &middot; ${Math.round(x.mean_pm25)} µg/m³ avg</div>
+      <div class="spark">${bars}</div>
+      <div class="card-meta">${x.station_count} stations &middot; ${(x.stories||[]).length} events</div>
+    </div>`;
+  }).join('');
+}
+
+function back(){
+  document.getElementById('gallery').style.display='';
+  document.getElementById('detail').classList.remove('on');
+  window.scrollTo(0,0);
+}
+
+function show(key){
+  const x=D.find(d=>d.key===key);if(!x)return;
+  document.getElementById('gallery').style.display='none';
+  document.getElementById('detail').classList.add('on');
+  window._city=x;
+
+  // Col 1
+  const days=x.daily.filter(d=>d.pm25!=null);
+  const vals=days.map(d=>d.pm25);
+  const mx=Math.max(...vals,20);
+  const W=220,H=110,pt=6,pb=18,ch=H-pt-pb;
+  const sx=i=>i/(days.length-1)*W;
+  const sy=v=>pt+ch-(v/mx*ch);
+  let path='',area=`M 0 ${H-pb}`;
+  days.forEach((d,i)=>{const xx=sx(i),y=sy(d.pm25);path+=(i?'L':'M')+` ${xx} ${y}`;area+=` L ${xx} ${y}`;});
+  area+=` L ${sx(days.length-1)} ${H-pb} Z`;
+  const whoY=sy(15);
+  // Store chart geometry globally for highlight
+  window._chartDays = days;
+  window._sx = sx;
+  window._sy = sy;
+  window._W = W;
+  window._H = H;
+  window._pb = pb;
+
+  let dots='';
+  days.forEach((d,i)=>{
+    dots+=`<circle cx="${sx(i)}" cy="${sy(d.pm25)}" r="5" fill="transparent" onmouseenter="tt(event,${JSON.stringify(d).replace(/"/g,'&quot;')})" onmouseleave="ht()"/>`;
+    dots+=`<circle cx="${sx(i)}" cy="${sy(d.pm25)}" r="1.5" fill="${hx(d.pm25)}" pointer-events="none" class="chart-dot" data-date="${d.date}"/>`;
+  });
+  let lbl='';
+  [0,days.length-1].forEach(i=>{
+    lbl+=`<text x="${sx(i)}" y="${H-2}" text-anchor="${i===0?'start':'end'}" fill="#999" font-size="9" font-family="Geist Mono,monospace">${fd(days[i].date)}</text>`;
+  });
+
+  const whoX = x.who_multiple || (x.mean_pm25/15).toFixed(1);
+  const aqli = x.aqli_years || 0;
+  document.getElementById('col1').innerHTML=`
+    <div class="city-name">${x.name}</div>
+    <div class="city-sub">${x.station_count} stations &middot; ${whoX}x the WHO safe limit</div>
+    ${aqli > 1 ? `<div style="font-size:11px;color:var(--red);margin-top:4px">At this level, residents lose ~${aqli} years of life expectancy (AQLI)</div>` : ''}
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv ${cl(x.mean_pm25)}">${Math.round(x.mean_pm25)}</div><div class="kl">Avg PM2.5</div></div>
+      <div class="kpi"><div class="kv b">${Math.round(x.max_pm25)}</div><div class="kl">Worst day</div></div>
+      <div class="kpi"><div class="kv g">${Math.round(x.min_pm25)}</div><div class="kl">Best day</div></div>
+      <div class="kpi"><div class="kv">${x.who_exceed_pct}%</div><div class="kl">Over WHO</div></div>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 ${W} ${H}">
+        <line x1="0" y1="${whoY}" x2="${W}" y2="${whoY}" stroke="#dc2626" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.2"/>
+        <path d="${area}" fill="url(#gr)" opacity="0.15"/>
+        <path d="${path}" fill="none" stroke="${hx(x.mean_pm25)}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+        ${dots}${lbl}
+        <g id="chart-hl"></g>
+        <defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="${hx(x.mean_pm25)}" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="${hx(x.mean_pm25)}" stop-opacity="0"/>
+        </linearGradient></defs>
+      </svg>
+    </div>`;
+
+  // Col 2: Stories (event-driven)
+  const stories = x.stories || [];
+  let c2 = '';
+  if (x.narrative) c2 += `<div class="narrative">${x.narrative}</div>`;
+  c2 += `<div class="sec-label">${stories.length} key event${stories.length!==1?'s':''}</div>`;
+
+  // Store stories globally for sel()
+  window._stories = stories;
+
+  stories.forEach((s,idx) => {
+    const conf = s.confirmed || false;
+    const dates = s.dates || '';
+    const sources = (s.sources||[]).join(', ');
+
+    c2 += `<div class="ti" id="ti-${idx}" onclick="sel(${idx})">
+      <div class="ti-row">
+        <div class="ti-left">
+          <div class="t-headline">${s.event}</div>
+          <div class="t-impact">${s.impact}</div>
+        </div>
+        <div class="t-date">${dates}</div>
+      </div>
+    </div>`;
+    c2 += `<div class="td" id="td-${idx}">
+      <div class="td-why">${s.detail}</div>
+      ${sources ? `<div class="td-label" style="color:var(--green);margin-top:10px">${conf ? 'Verified sources' : 'Sources'}</div><div class="td-news">${sources}</div>` : ''}
+    </div>`;
+  });
+
+  if(!stories.length) c2+='<div style="color:var(--g400);font-size:13px">Not enough data for this city.</div>';
+  document.getElementById('col2').innerHTML=c2;
+
+  // Col 3: Calendar
+  buildCal(x);
+  window.scrollTo(0,0);
+}
+
+// Local date key helper — avoids toISOString UTC shift
+function localKey(dt){
+  return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+}
+
+function buildCal(x){
+  const dateMap={};
+  x.daily.forEach(d=>{if(d.pm25!=null)dateMap[d.date]={pm25:d.pm25,trendIdx:null};});
+  const stories=x.stories||[];
+  // Map stories to calendar days (skip 'context' type — too broad)
+  stories.forEach((s,idx)=>{
+    if(s.type==='context') return;
+    if(!s.start||!s.end) return;
+    const [sy,sm,sd]=s.start.split('-').map(Number);
+    const [ey,em,ed]=s.end.split('-').map(Number);
+    let cur=new Date(sy,sm-1,sd);
+    const end=new Date(ey,em-1,ed);
+    while(cur<=end){
+      const k=localKey(cur);
+      if(dateMap[k]) dateMap[k].trendIdx=idx;
+      cur.setDate(cur.getDate()+1);
+    }
+  });
+
+  const months=[{year:2026,month:3,label:'March'},{year:2026,month:4,label:'April'}];
+  let html='';
+  months.forEach(mo=>{
+    const fd1=new Date(mo.year,mo.month-1,1).getDay();
+    const dim=new Date(mo.year,mo.month,0).getDate();
+    html+=`<div class="cal-label">${mo.label}</div>`;
+    html+=`<div class="cal-wk"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>`;
+    html+=`<div class="cal-g">`;
+    for(let i=0;i<fd1;i++)html+=`<div class="cd"></div>`;
+    for(let d=1;d<=dim;d++){
+      const key=`${mo.year}-${String(mo.month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const info=dateMap[key];
+      if(!info){html+=`<div class="cd">${d}</div>`;continue;}
+
+      const tIdx=info.trendIdx;
+      const hasTrend=tIdx!==null;
+      const trend=hasTrend?stories[tIdx]:null;
+      const isUp=trend&&(trend.type==='spike');
+
+      let gc='';
+      if(hasTrend) gc='trg';
+
+      const oc=hasTrend?`onclick="calSel(${tIdx})"`:'';
+      const inner = hasTrend
+        ? `${d}<div class="trg-bar"></div>`
+        : `${d}<div class="pdot" style="background:${hx(info.pm25)}"></div>`;
+      html+=`<div class="cd in ${gc}${hasTrend?' has-trend':''}" data-tidx="${tIdx}" data-date="${key}" ${oc}>${inner}</div>`;
+    }
+    html+=`</div>`;
+  });
+  document.getElementById('col3').innerHTML=html;
+}
+
+function sel(idx){
+  const x=window._city;if(!x)return;
+  const stories=window._stories||[];
+  const t=stories[idx];if(!t)return;
+
+  // Trend list
+  document.querySelectorAll('.ti').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.td').forEach(e=>e.classList.remove('open'));
+  document.getElementById('ti-'+idx).classList.add('active');
+  document.getElementById('td-'+idx).classList.add('open');
+
+  // Calendar
+  document.querySelectorAll('.cd.hl').forEach(e=>e.classList.remove('hl'));
+  document.querySelectorAll(`.cd[data-tidx="${idx}"]`).forEach(e=>e.classList.add('hl'));
+
+  // Chart highlight
+  const hlG=document.getElementById('chart-hl');
+  if(!hlG)return;
+  hlG.innerHTML='';
+  const days=window._chartDays;
+  const sx=window._sx, sy=window._sy;
+  if(!days||!sx)return;
+
+  // Find indices in chart days that fall within trend date range
+  const tDays=[];
+  days.forEach((d,i)=>{
+    if(d.date>=t.start && d.date<=t.end) tDays.push(i);
+  });
+  if(!tDays.length)return;
+
+  // Draw highlighted path segment
+  let hlPath='';
+  tDays.forEach((i,j)=>{
+    hlPath+=(j===0?'M':'L')+` ${sx(i)} ${sy(days[i].pm25)}`;
+  });
+  hlG.innerHTML+=`<path d="${hlPath}" fill="none" stroke="${hx(days[tDays[0]].pm25)}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+
+  // Draw bigger dots
+  tDays.forEach(i=>{
+    hlG.innerHTML+=`<circle cx="${sx(i)}" cy="${sy(days[i].pm25)}" r="4" fill="${hx(days[i].pm25)}"/>`;
+  });
+}
+function calSel(idx){sel(idx);document.getElementById('ti-'+idx).scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+function tt(e,d){
+  const t=document.getElementById('tip');
+  let s=`<strong>${fd(d.date)}</strong><br>PM2.5: ${Math.round(d.pm25)}`;
+  if(d.pm10)s+=` &middot; PM10: ${Math.round(d.pm10)}`;
+  if(d.temp)s+=`<br>${d.temp.toFixed(1)}°C &middot; ${Math.round(d.humid)}% humid`;
+  t.innerHTML=s;t.style.display='block';t.style.left=(e.clientX+14)+'px';t.style.top=(e.clientY-12)+'px';
+}
+function ht(){document.getElementById('tip').style.display='none';}
+
+fetch('site_data.json').then(r=>r.json()).then(d=>{D=d;renderGrid();
+  const k=location.hash.slice(1);if(k&&D.find(x=>x.key===k))show(k);
+});
+</script>
+</body>
+</html>
