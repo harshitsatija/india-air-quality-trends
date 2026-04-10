@@ -6,14 +6,14 @@ Assumptions are clearly framed as inferences, not proven causation.
 
 CITY_STORIES = {
     "delhi": {
-        "narrative": "Delhi's spring air is a rollercoaster — dust storms from Rajasthan push PM2.5 to 9x the safe limit one day, rain clears it the next. The city swung between 25 and 142 µg/m³ this month. PM2.5 exceeded the WHO limit on every single day, even the 'good' ones.",
+        "narrative": "Delhi's spring air is a rollercoaster — the city swung between 25 and 142 µg/m³ this month. PM2.5 exceeded the WHO limit on every single day. According to a DPCC/IIT Kanpur real-time source apportionment study, dust accounts for 52.5% of Delhi's PM2.5 in summer — making it the dominant driver. Rain is the only reliable cleanup mechanism.",
         "stories": [
             {
                 "event": "Month opened at 142 µg/m³ — 9x the safe limit",
                 "dates": "Mar 10–12",
                 "impact": "PM2.5 hit 142 µg/m³ on the first day — the worst reading of the entire month.",
-                "detail": "March is peak dust season in Delhi as westerly winds carry desert particles from Rajasthan (documented by IQAir and Down to Earth). Vehicle emissions, which account for ~30% of Delhi's PM2.5 year-round, likely compounded the effect. However, no specific dust storm event was reported on these dates — this may reflect Delhi's elevated spring baseline rather than a discrete event.",
-                "sources": ["IQAir", "Down to Earth"],
+                "detail": "A DPCC/IIT Kanpur study (2023) found dust accounts for 52.5% of Delhi's summer PM2.5 — the single largest source. Vehicle exhaust contributes 8-12% year-round. March is peak dust season as westerly winds carry particles from Rajasthan (IQAir, Down to Earth). No specific dust storm was reported on these dates — this likely reflects Delhi's elevated spring baseline rather than a discrete event.",
+                "sources": ["DPCC/IIT Kanpur (2023)", "IQAir", "Down to Earth"],
                 "confirmed": False,
                 "type": "spike",
                 "start": "2026-03-10",
@@ -56,8 +56,8 @@ CITY_STORIES = {
                 "event": "AQI crossed 500 during dust storm",
                 "dates": "Apr 1–2",
                 "impact": "PM10 exceeded 800 µg/m³. Delhi ranked among the world's 10 most polluted cities.",
-                "detail": "IQAir reported on Apr 3 that Delhi's AQI exceeded 500 (hazardous), driven overwhelmingly by coarse dust rather than combustion particles. PM10 dominating over PM2.5 is consistent with a regional dust transport event. IQAir specifically attributed this to dust, not industrial or vehicular sources.",
-                "sources": ["IQAir (Apr 3, 2026)", "AQI.in"],
+                "detail": "IQAir reported on Apr 3 that AQI exceeded 500, driven overwhelmingly by coarse dust (PM10 > 800 µg/m³). PM10 dominating over PM2.5 is the signature of a dust transport event — consistent with the DPCC finding that dust is 52.5% of summer PM2.5. Satellite aerosol imagery from NASA Worldview (MODIS) can independently verify the dust plume path for this date.",
+                "sources": ["IQAir (Apr 3, 2026)", "AQI.in", "DPCC/IIT Kanpur source apportionment"],
                 "confirmed": True,
                 "type": "spike",
                 "start": "2026-04-01",
@@ -88,14 +88,14 @@ CITY_STORIES = {
         ],
     },
     "bengaluru": {
-        "narrative": "Bengaluru's air is 2.4x the safe limit — moderate by Indian standards but never actually safe. Metro construction dust is a persistent driver. The month saw a hailstorm that briefly cleaned the air, a mysterious one-day spike to 60 µg/m³, an IPL match that coincided with a traffic spike, and the early signs of pre-monsoon relief.",
+        "narrative": "Bengaluru's air is 2.4x the safe limit — moderate by Indian standards but never actually safe. CPCB source apportionment attributes 28% to vehicle exhaust and 23% to dust/construction. The month saw a hailstorm that briefly cleaned the air, a mysterious one-day spike to 60 µg/m³, and the early signs of pre-monsoon relief. Even the cleanest day (17 µg/m³) was above WHO limits.",
         "stories": [
             {
                 "event": "PM2.5 hit 48 during dry mid-March spell",
                 "dates": "Mar 12–15",
                 "impact": "PM2.5 hit 48 µg/m³ on Mar 13 — 3.2x the safe limit. Humidity dropped from 65% to 50%.",
-                "detail": "Citizen Matters has documented that Namma Metro Phase 2 construction is happening in residential areas without proper dust management, and that mandated suppression measures are not being followed. AQI.in recorded PM2.5 of 52 on Mar 13. Declining humidity reduces natural moisture suppression of dust — a known mechanism. However, we cannot prove the metro was the specific cause on these dates vs other construction activity.",
-                "sources": ["Citizen Matters", "AQI.in"],
+                "detail": "CPCB source apportionment for Bengaluru attributes 23% of PM2.5 to dust and construction. Citizen Matters documented that Namma Metro Phase 2 construction is happening in residential areas without proper dust management. AQI.in recorded PM2.5 of 52 on Mar 13. Declining humidity (65% → 50%) reduces natural moisture suppression — a known mechanism. However, we cannot isolate metro construction from other dust sources on these specific dates.",
+                "sources": ["CPCB/UrbanEmissions", "Citizen Matters", "AQI.in"],
                 "confirmed": True,
                 "type": "spike",
                 "start": "2026-03-12",
