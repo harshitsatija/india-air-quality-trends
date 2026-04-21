@@ -1,7 +1,10 @@
 """Fetch Mar + Apr 2026 monthly data for all 10 metro cities."""
 import json, subprocess, os
 
-SIGN = "URLPrefix=aHR0cHM6Ly9vYXEubm90Zi5pbi92MS8=&Expires=1775715634&KeyName=prod-key-1&Signature=clqlFhqVKsjYRFsIBy8aYoNu5Gs="
+SIGN = "URLPrefix=aHR0cHM6Ly9vYXEubm90Zi5pbi92MS8=&Expires=1776839810&KeyName=prod-key-1&Signature=khgBxxpdoFvoqgkKUazpXC9mm6s="
+
+START_DATE = "2026-03-10"
+END_DATE = "2026-04-21"
 
 CITIES = {
     "delhi": "Delhi",
@@ -22,9 +25,9 @@ for city_key, city_name in CITIES.items():
     print(f"\n{'='*50}")
     print(f"Fetching {city_name}...")
 
-    # Get station list from latest
-    with open(f"/tmp/oaq_{city_key}.json") as f:
-        stations = json.load(f)["sensors"]
+    # Get station list from existing city_data snapshot
+    with open(f"city_data/{city_key}.json") as f:
+        stations = json.load(f)["stations"]
 
     print(f"  {len(stations)} CPCB stations")
 
@@ -50,12 +53,11 @@ for city_key, city_name in CITIES.items():
             except:
                 pass
 
-        # Combine Mar 7+ and Apr 1-7
         combined = []
         if mar_data:
-            combined += [d for d in mar_data if d["date"] >= "2026-03-07"]
+            combined += [d for d in mar_data if d["date"] >= START_DATE]
         if apr_data:
-            combined += [d for d in apr_data if d["date"] <= "2026-04-07"]
+            combined += [d for d in apr_data if d["date"] <= END_DATE]
 
         if combined:
             city_stations.append({

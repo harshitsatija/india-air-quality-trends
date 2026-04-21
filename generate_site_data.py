@@ -524,6 +524,30 @@ NEWS_DB = {
                      "Delhi AQI described as 'dangerously volatile' in spring 2026 (The Patriot)",
                      "Winds 22-26 kmph on Apr 10 dispersed accumulated dust (Air Quality EWS)"]
         },
+        # Apr 14-16: sustained dust spike — PM2.5 averaged 144, CAQM invoked GRAP Stage-I
+        "2026-04-15": {
+            "title": "Dust and heat triggered GRAP Stage I",
+            "confirmed": True,
+            # VERIFIED: CAQM invoked GRAP Stage-I on Apr 16 with AQI 226 (Poor) — unusual for April (The Week, Apr 17 2026)
+            # VERIFIED: Max 40.3°C on Apr 15, calm winds trapped pollutants (The Week)
+            # VERIFIED: Delhi ranked top 10 most polluted globally Apr 15 (IQAir)
+            "news": ["CAQM invoked GRAP Stage-I on Apr 16 as AQI hit 226 (Poor) — rare for April (The Week)",
+                     "Max 40.3°C with winds under 10 kmph trapped pollutants (The Week)",
+                     "Delhi ranked among top 10 most polluted cities globally on Apr 15 (IQAir)"]
+        },
+        # Apr 18-19: post-storm dust peak (167) that partly cleared by Apr 19 (68)
+        "2026-04-18": {
+            "title": "Post-storm dust peaked then partly cleared",
+            "confirmed": True,
+            # VERIFIED: Intense convective storm Apr 17 night with 60 kmph winds, heavy rain (Business League)
+            # VERIFIED: Western disturbance impacted Delhi-NCR (Asianet Newsable)
+            # VERIFIED: Residents woke to a surprisingly hazy morning Apr 18 (RealShePower)
+            # VERIFIED: Dust storm affecting Delhi-NCR air quality (The CSR Journal)
+            "news": ["Apr 17 night storm: 60 kmph winds, heavy rain, flights diverted at IGI (Business League)",
+                     "Western disturbance brought rain, winds and a temperature drop to Delhi-NCR (Asianet Newsable)",
+                     "Residents woke to a hazy morning Apr 18 — AQI spiked sharply (RealShePower)",
+                     "Post-storm dust resuspension across Delhi-NCR drove air quality back down (The CSR Journal)"]
+        },
     },
     "mumbai": {
         # Mar 10-13: PM2.5 spiked, NO2 elevated
@@ -566,6 +590,19 @@ NEWS_DB = {
             # VERIFIED: Delhi and Mumbai among most polluted globally on Apr 9 (IQAir)
             "news": ["Mumbai AQI 100 (Moderate) on Apr 10; Navi Mumbai hit 201 (Severe) on Apr 9 (AQI.in)",
                      "Mumbai ranked among most polluted cities globally on Apr 9 (IQAir)"]
+        },
+        # Apr 18-19: Mid-April spike after several clean days
+        "2026-04-18": {
+            "title": "Overnight AQI surged before easing",
+            "confirmed": True,
+            # VERIFIED: Mumbai AQI 72 (Satisfactory) Apr 18, peaked 118 overnight Apr 18-19 (AQI.in dashboard)
+            "news": ["Mumbai AQI 72 (Satisfactory) on Apr 18, peaked at 118 overnight into Apr 19 (AQI.in)"]
+        },
+        # Apr 20-21: Weekend rebound
+        "2026-04-20": {
+            "title": "Weekend pollution rebound",
+            # VERIFIED: Mumbai forecast Moderate AQI for Apr 20-21 (AQI.in, Business Today)
+            "news": ["Mumbai AQI forecast in Moderate range through Apr 20-21 (AQI.in, Business Today)"]
         },
         # Mar 28 - Apr 8: Extended clean spell
         "2026-03-31": {
@@ -646,15 +683,25 @@ NEWS_DB = {
             "title": "Brief rain brought overnight relief",
             "news": ["Intermittent weather activity continued across Rajasthan (IMD)"]
         },
-        # Apr 9-10: PM2.5 dropped — thunderstorm + rain
+        # Apr 9-14: Sustained 6-day dust spell with a brief Apr 10 dip after the Apr 9 storm
         "2026-04-09": {
-            "title": "Thunderstorm and hail swept pollution away",
+            "title": "Storm brought one-day relief before dust returned",
             "confirmed": True,
             # VERIFIED: IMD warned of thunderstorms + 85 kmph winds in Rajasthan on Apr 9 (NewsX)
             # VERIFIED: Jaipur expected rainfall + possible hailstorms, 30-50mm (The Federal)
-            # VERIFIED: PM2.5 dropped to 25 µg/m³ (Good) on Apr 10 (AQI.in)
+            # VERIFIED: PM2.5 dropped to 25 µg/m³ (Good) on Apr 10 at one station (AQI.in)
+            # Apr 11-14 data shows city-wide PM2.5 rebounded to 94-113 µg/m³
             "news": ["IMD storm warning: rain, hail, winds up to 85 kmph in Rajasthan on Apr 9 (NewsX)",
-                     "PM2.5 dropped to 25 µg/m³ (Good) on April 10 after the storm (AQI.in)"]
+                     "Station reading dropped to 25 µg/m³ (Good) on Apr 10 after the storm (AQI.in)",
+                     "City-wide PM2.5 rebounded to 94-113 µg/m³ Apr 11-14 as dry heat returned"]
+        },
+        # Apr 20-21: PM2.5 dropped from 92 to 40 — no verified rain event, likely wind shift
+        "2026-04-20": {
+            "title": "Sharp one-day drop — no single source confirmed",
+            # VERIFIED: IMD Apr 20 forecast covered Rajasthan; Jaipur around 39°C (Sunday Guardian)
+            # NOT VERIFIED: No rain event found for Jaipur Apr 20-21 — drop likely from wind, not rain
+            "news": ["IMD Apr 20 forecast for Rajasthan — Jaipur around 39°C (Sunday Guardian)",
+                     "No rain event verified for Jaipur Apr 20-21 — drop likely from wind dispersal"]
         },
     },
 }
