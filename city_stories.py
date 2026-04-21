@@ -497,7 +497,7 @@ if __name__ == '__main__':
         if c['key'] in CITY_STORIES:
             cs = CITY_STORIES[c['key']]
             c['narrative'] = cs['narrative']
-            c['stories'] = cs['stories']
+            c['stories'] = sorted(cs['stories'], key=lambda s: s['start'], reverse=True)
 
     with open('site_data.json', 'w') as f:
         json.dump(data, f)
